@@ -15,6 +15,8 @@ IMPORTANT: the "-98" flag turns on a few extensions to Hugs - don't omit!
 Hugs is the Haskell interpreter, and is widely available in package repos.
 You can also use GHC but I've not tested it recently.
 
+NB assumes JS in the current directory, so copy as required etc
+
 
 
 This produces some files
