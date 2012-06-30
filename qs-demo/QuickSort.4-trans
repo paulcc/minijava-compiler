@@ -1,0 +1,365 @@
+main_
+  LABEL main_
+  EXP (ESEQ
+           MOVE Fr(-3)
+                print((ESEQ
+                           MOVE Fr(-2)
+                                /*QS.Start*/0((ESEQ
+                                                   MOVE Fr(-1) obj_alloc(8, jumpQS)
+                                                 Fr(-1)), 10)
+                         Fr(-2)))
+         Fr(-3))
+  JUMP main__exit
+QS_Start
+  MOVE Fr(-1)
+       (ESEQ
+            MOVE Fr(-2) /*QS.Init*/3(Fr(0), Fr(1))
+          Fr(-2))
+  MOVE Fr(-1)
+       (ESEQ
+            MOVE Fr(-3) /*QS.Print*/2(Fr(0))
+          Fr(-3))
+  EXP (ESEQ
+           MOVE Fr(-4) print(9999)
+         Fr(-4))
+  MOVE Fr(-1) ((MEM (Fr(0) + 4)) - 1)
+  MOVE Fr(-1)
+       (ESEQ
+            MOVE Fr(-5) /*QS.Sort*/1(Fr(0), 0, Fr(-1))
+          Fr(-5))
+  MOVE Fr(-1)
+       (ESEQ
+            MOVE Fr(-6) /*QS.Print*/2(Fr(0))
+          Fr(-6))
+  MOVE retval 0
+  JUMP QS_Start_exit
+QS_Sort
+  MOVE Fr(-5) 0
+  CJUMP ((Fr(1) < Fr(2)) == 1) L_0 else L_55
+  LABEL L_0
+  MOVE Fr(-1)
+       (ESEQ
+            MOVE Fr(-9) Fr(2)
+            CJUMP (Fr(-9) < 0) L_3 else L_1
+            LABEL L_1
+            CJUMP (Fr(-9) < (MEM (MEM (Fr(0) + 0)))) L_2 else L_3
+            LABEL L_3
+            EXP (ESEQ
+                     MOVE Fr(-10) <<crash_array>>()
+                   Fr(-10))
+            LABEL L_2
+          (MEM ((MEM (Fr(0) + 0)) + (4 * (Fr(-9) + 1)))))
+  MOVE Fr(-2) (Fr(1) - 1)
+  MOVE Fr(-3) Fr(2)
+  MOVE Fr(-6) 1
+  LABEL L_4
+  CJUMP (Fr(-6) == 0) L_39 else L_5
+  LABEL L_5
+  MOVE Fr(-7) 1
+  LABEL L_6
+  CJUMP (Fr(-7) == 0) L_14 else L_7
+  LABEL L_7
+  MOVE Fr(-2) (Fr(-2) + 1)
+  MOVE Fr(-8)
+       (ESEQ
+            MOVE Fr(-11) Fr(-2)
+            CJUMP (Fr(-11) < 0) L_10 else L_8
+            LABEL L_8
+            CJUMP (Fr(-11) < (MEM (MEM (Fr(0) + 0)))) L_9 else L_10
+            LABEL L_10
+            EXP (ESEQ
+                     MOVE Fr(-12) <<crash_array>>()
+                   Fr(-12))
+            LABEL L_9
+          (MEM ((MEM (Fr(0) + 0)) + (4 * (Fr(-11) + 1)))))
+  CJUMP (((Fr(-8) < Fr(-1)) == 0) == 1) L_11 else L_12
+  LABEL L_11
+  MOVE Fr(-7) 0
+  JUMP L_13
+  LABEL L_12
+  MOVE Fr(-7) 1
+  JUMP L_13
+  LABEL L_13
+  JUMP L_6
+  LABEL L_14
+  MOVE Fr(-7) 1
+  LABEL L_15
+  CJUMP (Fr(-7) == 0) L_23 else L_16
+  LABEL L_16
+  MOVE Fr(-3) (Fr(-3) - 1)
+  MOVE Fr(-8)
+       (ESEQ
+            MOVE Fr(-13) Fr(-3)
+            CJUMP (Fr(-13) < 0) L_19 else L_17
+            LABEL L_17
+            CJUMP (Fr(-13) < (MEM (MEM (Fr(0) + 0)))) L_18 else L_19
+            LABEL L_19
+            EXP (ESEQ
+                     MOVE Fr(-14) <<crash_array>>()
+                   Fr(-14))
+            LABEL L_18
+          (MEM ((MEM (Fr(0) + 0)) + (4 * (Fr(-13) + 1)))))
+  CJUMP (((Fr(-1) < Fr(-8)) == 0) == 1) L_20 else L_21
+  LABEL L_20
+  MOVE Fr(-7) 0
+  JUMP L_22
+  LABEL L_21
+  MOVE Fr(-7) 1
+  JUMP L_22
+  LABEL L_22
+  JUMP L_15
+  LABEL L_23
+  MOVE Fr(-5)
+       (ESEQ
+            MOVE Fr(-15) Fr(-2)
+            CJUMP (Fr(-15) < 0) L_26 else L_24
+            LABEL L_24
+            CJUMP (Fr(-15) < (MEM (MEM (Fr(0) + 0)))) L_25 else L_26
+            LABEL L_26
+            EXP (ESEQ
+                     MOVE Fr(-16) <<crash_array>>()
+                   Fr(-16))
+            LABEL L_25
+          (MEM ((MEM (Fr(0) + 0)) + (4 * (Fr(-15) + 1)))))
+  MOVE Fr(-17) Fr(-2)
+  CJUMP (Fr(-17) < 0) L_29 else L_27
+  LABEL L_27
+  CJUMP (Fr(-17) < (MEM (MEM (Fr(0) + 0)))) L_28 else L_29
+  LABEL L_29
+  EXP (ESEQ
+           MOVE Fr(-18) <<crash_array>>()
+         Fr(-18))
+  LABEL L_28
+  MOVE (MEM ((MEM (Fr(0) + 0)) + (4 * (Fr(-17) + 1))))
+       (ESEQ
+            MOVE Fr(-19) Fr(-3)
+            CJUMP (Fr(-19) < 0) L_32 else L_30
+            LABEL L_30
+            CJUMP (Fr(-19) < (MEM (MEM (Fr(0) + 0)))) L_31 else L_32
+            LABEL L_32
+            EXP (ESEQ
+                     MOVE Fr(-20) <<crash_array>>()
+                   Fr(-20))
+            LABEL L_31
+          (MEM ((MEM (Fr(0) + 0)) + (4 * (Fr(-19) + 1)))))
+  MOVE Fr(-21) Fr(-3)
+  CJUMP (Fr(-21) < 0) L_35 else L_33
+  LABEL L_33
+  CJUMP (Fr(-21) < (MEM (MEM (Fr(0) + 0)))) L_34 else L_35
+  LABEL L_35
+  EXP (ESEQ
+           MOVE Fr(-22) <<crash_array>>()
+         Fr(-22))
+  LABEL L_34
+  MOVE (MEM ((MEM (Fr(0) + 0)) + (4 * (Fr(-21) + 1)))) Fr(-5)
+  CJUMP ((Fr(-3) < (Fr(-2) + 1)) == 1) L_36 else L_37
+  LABEL L_36
+  MOVE Fr(-6) 0
+  JUMP L_38
+  LABEL L_37
+  MOVE Fr(-6) 1
+  JUMP L_38
+  LABEL L_38
+  JUMP L_4
+  LABEL L_39
+  MOVE Fr(-23) Fr(-3)
+  CJUMP (Fr(-23) < 0) L_42 else L_40
+  LABEL L_40
+  CJUMP (Fr(-23) < (MEM (MEM (Fr(0) + 0)))) L_41 else L_42
+  LABEL L_42
+  EXP (ESEQ
+           MOVE Fr(-24) <<crash_array>>()
+         Fr(-24))
+  LABEL L_41
+  MOVE (MEM ((MEM (Fr(0) + 0)) + (4 * (Fr(-23) + 1))))
+       (ESEQ
+            MOVE Fr(-25) Fr(-2)
+            CJUMP (Fr(-25) < 0) L_45 else L_43
+            LABEL L_43
+            CJUMP (Fr(-25) < (MEM (MEM (Fr(0) + 0)))) L_44 else L_45
+            LABEL L_45
+            EXP (ESEQ
+                     MOVE Fr(-26) <<crash_array>>()
+                   Fr(-26))
+            LABEL L_44
+          (MEM ((MEM (Fr(0) + 0)) + (4 * (Fr(-25) + 1)))))
+  MOVE Fr(-27) Fr(-2)
+  CJUMP (Fr(-27) < 0) L_48 else L_46
+  LABEL L_46
+  CJUMP (Fr(-27) < (MEM (MEM (Fr(0) + 0)))) L_47 else L_48
+  LABEL L_48
+  EXP (ESEQ
+           MOVE Fr(-28) <<crash_array>>()
+         Fr(-28))
+  LABEL L_47
+  MOVE (MEM ((MEM (Fr(0) + 0)) + (4 * (Fr(-27) + 1))))
+       (ESEQ
+            MOVE Fr(-29) Fr(2)
+            CJUMP (Fr(-29) < 0) L_51 else L_49
+            LABEL L_49
+            CJUMP (Fr(-29) < (MEM (MEM (Fr(0) + 0)))) L_50 else L_51
+            LABEL L_51
+            EXP (ESEQ
+                     MOVE Fr(-30) <<crash_array>>()
+                   Fr(-30))
+            LABEL L_50
+          (MEM ((MEM (Fr(0) + 0)) + (4 * (Fr(-29) + 1)))))
+  MOVE Fr(-31) Fr(2)
+  CJUMP (Fr(-31) < 0) L_54 else L_52
+  LABEL L_52
+  CJUMP (Fr(-31) < (MEM (MEM (Fr(0) + 0)))) L_53 else L_54
+  LABEL L_54
+  EXP (ESEQ
+           MOVE Fr(-32) <<crash_array>>()
+         Fr(-32))
+  LABEL L_53
+  MOVE (MEM ((MEM (Fr(0) + 0)) + (4 * (Fr(-31) + 1)))) Fr(-5)
+  MOVE Fr(-4)
+       (ESEQ
+            MOVE Fr(-33) /*QS.Sort*/1(Fr(0), Fr(1), (Fr(-2) - 1))
+          Fr(-33))
+  MOVE Fr(-4)
+       (ESEQ
+            MOVE Fr(-34) /*QS.Sort*/1(Fr(0), (Fr(-2) + 1), Fr(2))
+          Fr(-34))
+  JUMP L_56
+  LABEL L_55
+  MOVE Fr(-4) 0
+  JUMP L_56
+  LABEL L_56
+  MOVE retval 0
+  JUMP QS_Sort_exit
+QS_Print
+  MOVE Fr(-1) 0
+  LABEL L_57
+  CJUMP ((Fr(-1) < (MEM (Fr(0) + 4))) == 0) L_62 else L_58
+  LABEL L_58
+  EXP (ESEQ
+           MOVE Fr(-4)
+                print((ESEQ
+                           MOVE Fr(-2) Fr(-1)
+                           CJUMP (Fr(-2) < 0) L_61 else L_59
+                           LABEL L_59
+                           CJUMP (Fr(-2) < (MEM (MEM (Fr(0) + 0)))) L_60 else L_61
+                           LABEL L_61
+                           EXP (ESEQ
+                                    MOVE Fr(-3) <<crash_array>>()
+                                  Fr(-3))
+                           LABEL L_60
+                         (MEM ((MEM (Fr(0) + 0)) + (4 * (Fr(-2) + 1))))))
+         Fr(-4))
+  MOVE Fr(-1) (Fr(-1) + 1)
+  JUMP L_57
+  LABEL L_62
+  MOVE retval 0
+  JUMP QS_Print_exit
+QS_Init
+  MOVE (MEM (Fr(0) + 4)) Fr(1)
+  MOVE (MEM (Fr(0) + 0))
+       (ESEQ
+            MOVE Fr(-1) Fr(1)
+            MOVE Fr(-2) malloc(((1 + Fr(-1)) * 4))
+            MOVE (MEM Fr(-2)) Fr(-1)
+          Fr(-2))
+  MOVE Fr(-3) 0
+  CJUMP (Fr(-3) < 0) L_65 else L_63
+  LABEL L_63
+  CJUMP (Fr(-3) < (MEM (MEM (Fr(0) + 0)))) L_64 else L_65
+  LABEL L_65
+  EXP (ESEQ
+           MOVE Fr(-4) <<crash_array>>()
+         Fr(-4))
+  LABEL L_64
+  MOVE (MEM ((MEM (Fr(0) + 0)) + (4 * (Fr(-3) + 1)))) 20
+  MOVE Fr(-5) 1
+  CJUMP (Fr(-5) < 0) L_68 else L_66
+  LABEL L_66
+  CJUMP (Fr(-5) < (MEM (MEM (Fr(0) + 0)))) L_67 else L_68
+  LABEL L_68
+  EXP (ESEQ
+           MOVE Fr(-6) <<crash_array>>()
+         Fr(-6))
+  LABEL L_67
+  MOVE (MEM ((MEM (Fr(0) + 0)) + (4 * (Fr(-5) + 1)))) 7
+  MOVE Fr(-7) 2
+  CJUMP (Fr(-7) < 0) L_71 else L_69
+  LABEL L_69
+  CJUMP (Fr(-7) < (MEM (MEM (Fr(0) + 0)))) L_70 else L_71
+  LABEL L_71
+  EXP (ESEQ
+           MOVE Fr(-8) <<crash_array>>()
+         Fr(-8))
+  LABEL L_70
+  MOVE (MEM ((MEM (Fr(0) + 0)) + (4 * (Fr(-7) + 1)))) 12
+  MOVE Fr(-9) 3
+  CJUMP (Fr(-9) < 0) L_74 else L_72
+  LABEL L_72
+  CJUMP (Fr(-9) < (MEM (MEM (Fr(0) + 0)))) L_73 else L_74
+  LABEL L_74
+  EXP (ESEQ
+           MOVE Fr(-10) <<crash_array>>()
+         Fr(-10))
+  LABEL L_73
+  MOVE (MEM ((MEM (Fr(0) + 0)) + (4 * (Fr(-9) + 1)))) 18
+  MOVE Fr(-11) 4
+  CJUMP (Fr(-11) < 0) L_77 else L_75
+  LABEL L_75
+  CJUMP (Fr(-11) < (MEM (MEM (Fr(0) + 0)))) L_76 else L_77
+  LABEL L_77
+  EXP (ESEQ
+           MOVE Fr(-12) <<crash_array>>()
+         Fr(-12))
+  LABEL L_76
+  MOVE (MEM ((MEM (Fr(0) + 0)) + (4 * (Fr(-11) + 1)))) 2
+  MOVE Fr(-13) 5
+  CJUMP (Fr(-13) < 0) L_80 else L_78
+  LABEL L_78
+  CJUMP (Fr(-13) < (MEM (MEM (Fr(0) + 0)))) L_79 else L_80
+  LABEL L_80
+  EXP (ESEQ
+           MOVE Fr(-14) <<crash_array>>()
+         Fr(-14))
+  LABEL L_79
+  MOVE (MEM ((MEM (Fr(0) + 0)) + (4 * (Fr(-13) + 1)))) 11
+  MOVE Fr(-15) 6
+  CJUMP (Fr(-15) < 0) L_83 else L_81
+  LABEL L_81
+  CJUMP (Fr(-15) < (MEM (MEM (Fr(0) + 0)))) L_82 else L_83
+  LABEL L_83
+  EXP (ESEQ
+           MOVE Fr(-16) <<crash_array>>()
+         Fr(-16))
+  LABEL L_82
+  MOVE (MEM ((MEM (Fr(0) + 0)) + (4 * (Fr(-15) + 1)))) 6
+  MOVE Fr(-17) 7
+  CJUMP (Fr(-17) < 0) L_86 else L_84
+  LABEL L_84
+  CJUMP (Fr(-17) < (MEM (MEM (Fr(0) + 0)))) L_85 else L_86
+  LABEL L_86
+  EXP (ESEQ
+           MOVE Fr(-18) <<crash_array>>()
+         Fr(-18))
+  LABEL L_85
+  MOVE (MEM ((MEM (Fr(0) + 0)) + (4 * (Fr(-17) + 1)))) 9
+  MOVE Fr(-19) 8
+  CJUMP (Fr(-19) < 0) L_89 else L_87
+  LABEL L_87
+  CJUMP (Fr(-19) < (MEM (MEM (Fr(0) + 0)))) L_88 else L_89
+  LABEL L_89
+  EXP (ESEQ
+           MOVE Fr(-20) <<crash_array>>()
+         Fr(-20))
+  LABEL L_88
+  MOVE (MEM ((MEM (Fr(0) + 0)) + (4 * (Fr(-19) + 1)))) 19
+  MOVE Fr(-21) 9
+  CJUMP (Fr(-21) < 0) L_92 else L_90
+  LABEL L_90
+  CJUMP (Fr(-21) < (MEM (MEM (Fr(0) + 0)))) L_91 else L_92
+  LABEL L_92
+  EXP (ESEQ
+           MOVE Fr(-22) <<crash_array>>()
+         Fr(-22))
+  LABEL L_91
+  MOVE (MEM ((MEM (Fr(0) + 0)) + (4 * (Fr(-21) + 1)))) 5
+  MOVE retval 0
+  JUMP QS_Init_exit

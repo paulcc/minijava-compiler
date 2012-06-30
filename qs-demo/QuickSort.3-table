@@ -1,0 +1,36 @@
+Symbol Table (at Nothing)
+Class QuickSort vars:
+                methods:
+                  Method main_ (type:  dummy type info)
+                               params:
+                               locals:
+Class QS vars:
+           number int []
+           size int
+         methods:
+           Method Start (type:  int)
+                        params:
+                          sz int
+                        locals:
+                          aux01 int
+           Method Sort (type:  int)
+                       params:
+                         left int
+                         right int
+                       locals:
+                         v int
+                         i int
+                         j int
+                         nt int
+                         t int
+                         cont01 boolean
+                         cont02 boolean
+                         aux03 int
+           Method Print (type:  int)
+                        params:
+                        locals:
+                          j int
+           Method Init (type:  int)
+                       params:
+                         sz int
+                       locals:

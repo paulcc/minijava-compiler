@@ -1,0 +1,42 @@
+Compiler 
+  - for a subset of Java, based on Appel "Modern Compiler Design in Java"
+
+Run with
+
+	runhugs -98 Main.lhs BinaryTree.java
+
+or with
+
+	hugs -98 Main.lhs
+	compile "BinaryTree.java"
+
+IMPORTANT: the "-98" flag turns on a few extensions to Hugs - don't omit!
+
+Hugs is the Haskell interpreter, and is widely available in package repos.
+You can also use GHC but I've not tested it recently.
+
+
+
+This produces some files
+
+ * BinaryTree.c		- resulting C code!!!
+
+ * BinaryTree.1-lex	- lexer output
+ * BinaryTree.2-tree	- parsed tree, pretty printed (ie fixed layout)
+ * BinaryTree.3-table	- symbol table - info about variables and methods
+ * BinaryTree.4-trans   - first basic translation, unpacking the OO details
+ * BinaryTree.5-lin	- linearised nested form into simpler sequences
+ * BinaryTree.6-traces	- forming basic blocks and removing some inefficient jumps
+
+
+To compile the .c file, run this
+
+	gcc rts.c BinaryTree.c
+
+This joins the raw C code with a simple run-time system in rts.[ch] - which 
+basically just provides a stack for holding fn args and local vars.
+
+And run the executable (assuming Unix/Linux) with
+
+	./a.out
+
