@@ -1,0 +1,17 @@
+
+see *.java for example inputs
+
+
+see Canonicalise.lhs for refactoring-style rewritings 
+
+see Syntax.lhs, IR.lhs for tree representation
+
+see MiniJava.ly, MiniJava.hs for the grammar (and compiled format) 
+
+see Printer.lhs for high-level pretty-printing 
+
+see ProduceC_Code.lhs for translation to C. 
+
+see Translate.lhs for unpacking of OO features 
+
+see TypeCheck.lhs for, well, you guess.
