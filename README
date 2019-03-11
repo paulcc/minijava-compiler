@@ -57,3 +57,8 @@ headers).
 The other option is to use "long int" instead of "int". You'll need to change the
 C-code generation and the RTS files for this. 
 
+
+WARNING: incomplete type checking of virtual methods
+
+Looks like I didn't include code for checking that overridden methods have 
+appropriate types. This is left as an exercise for the reader. 
