@@ -21,7 +21,7 @@ Input = frame info, plus [[block]]
 > classTable s c0
 >  = ( "extern Ptr jump" ++ c0 ++ "[];"
 >    , render
->    $ text ("static Ptr jump" ++ c0 ++ "[] =") 
+>    $ text ("Ptr jump" ++ c0 ++ "[] =") 
 >      <+> (vcat $ zipWith (<+>) (text "{" : repeat comma) (map text ptrs))
 >          $$ text "};"
 >    )

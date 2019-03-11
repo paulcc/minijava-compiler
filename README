@@ -33,7 +33,7 @@ This produces some files
 
 To compile the .c file, run this
 
-	gcc rts.c BinaryTree.c
+	gcc -m32 rts.c BinaryTree.c
 
 This joins the raw C code with a simple run-time system in rts.[ch] - which 
 basically just provides a stack for holding fn args and local vars.
@@ -41,4 +41,19 @@ basically just provides a stack for holding fn args and local vars.
 And run the executable (assuming Unix/Linux) with
 
 	./a.out
+
+
+
+IMPORTANT: historical code
+
+This code was written back in the days when 32 bit pointers were a thing, so it 
+assumes that ints and pointers take up the same space, and that stack cells can 
+hold either. This isn't correct in the current version of GCC. 
+
+The easiest option for now is to use the "-m32" flag on GCC to force it to use 
+32 bit pointers (and you may need to install the gcc-multilib package for relevant 
+headers).
+
+The other option is to use "long int" instead of "int". You'll need to change the
+C-code generation and the RTS files for this. 
 
